@@ -1,4 +1,4 @@
-from typing import Protocol
+from typing import Optional, Protocol
 from uuid import UUID
 
 from app.core.models.player import Player
@@ -12,5 +12,10 @@ async def create(name) -> Player:
     return player
 
 
-async def fetch_by_id(id: UUID) -> Player:
-    ...
+async def fetch_by_id(id: UUID) -> Optional[Player]:
+    player = await PlayerModel.find_one(PlayerModel.id == id)
+
+    if not player:
+        return None
+
+    return player
