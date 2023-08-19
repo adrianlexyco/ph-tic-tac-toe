@@ -1,2 +1,6 @@
 fastapi
 uvicorn
+pydantic[dotenv]==1.10
+mongomock==4.1.2
+mongomock-motor==0.0.12
+beanie==1.17.0
