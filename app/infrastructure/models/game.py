@@ -15,7 +15,7 @@ class Game(Document):
     id: UUID = Field(default_factory=uuid4)
     player1_id: UUID = Field(...)
     player2_id: UUID = Field(...)
-    board_size: int = Field(...)
+    board_size: int = Field(default_factory=3)
     movements: Optional[List[GameMovements]]
 
     class Settings:
