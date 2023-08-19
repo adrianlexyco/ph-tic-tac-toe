@@ -2,8 +2,9 @@ from pydantic import BaseModel
 from typing import Optional, List
 from uuid import UUID
 
+
 class GameMovements(BaseModel):
-    board_position: str
+    board_position: int
     player: UUID
 
 class Game(BaseModel):
@@ -15,3 +16,6 @@ class Game(BaseModel):
 
     class Config:
         orm_mode = True
+
+class GameDetails(Game):
+    status: str 
