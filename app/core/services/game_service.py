@@ -63,7 +63,14 @@ async def add_movement(
     if not add_movement:
         raise GenericError(error="movement.not.played")
 
-    return add_movement
+    return GameDetails(
+        id=add_movement.id,
+        board_size=add_movement.board_size,
+        player1_id=add_movement.player1_id,
+        player2_id=add_movement.player2_id,
+        movements=add_movement.movements,
+        status=calculate_game_status(add_movement),
+    )
 
 
 def calculate_game_status(game: Game) -> str:
