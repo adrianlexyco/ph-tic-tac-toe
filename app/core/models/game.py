@@ -4,6 +4,7 @@ from uuid import UUID
 
 class GameMovements(BaseModel):
     board_position: str
+    player: UUID
 
 class Game(BaseModel):
     id: Optional[UUID]

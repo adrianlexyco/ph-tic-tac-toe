@@ -34,3 +34,17 @@ async def get_game(id: UUID):
         return {"code": "success", "game": result}
     except GenericError as error:
         raise HTTPException(status_code=404, detail=error.code)
+
+
+@router.put("/{id}")
+async def add_movement(id: UUID, board_position: int, player: UUID):
+    try:
+        result = await game_service.add_movement(
+            game_repository=game_repository,
+            id=id,
+            board_position=board_position,
+            player=player,
+        )
+        return {"code": "success", "game": result}
+    except GenericError as error:
+        raise HTTPException(status_code=404, detail=error.code)

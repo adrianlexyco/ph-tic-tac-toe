@@ -8,7 +8,7 @@ from typing import List
 
 class GameMovements(BaseModel):
     board_position: int
-    player: str
+    player: UUID
 
 
 class Game(Document):
@@ -16,7 +16,7 @@ class Game(Document):
     player1_id: UUID = Field(...)
     player2_id: UUID = Field(...)
     board_size: int = Field(default_factory=3)
-    movements: Optional[List[GameMovements]]
+    movements: List[GameMovements] = Field(default_factory=list)
 
     class Settings:
         name = "games"

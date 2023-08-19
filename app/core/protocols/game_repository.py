@@ -10,3 +10,6 @@ class GameRepository(Protocol):
 
     async def fetch_by_id(self, id: UUID) -> Optional[Game]:
         ...
+
+    async def add_movement(id: UUID, board_position: int, player: UUID) -> Optional[Game]:
+        ...

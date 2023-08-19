@@ -17,3 +17,11 @@ async def fetch_by_id(game_repository: GameRepository, id: UUID) -> Optional[Gam
         raise GenericError(error="game.not.found")
 
     return game
+
+async def add_movement(game_repository: GameRepository, id: UUID, board_position: int, player: UUID) -> Optional[Game]:
+    game = await game_repository.add_movement(id=id, board_position=board_position, player=player)
+
+    if not game:
+        raise GenericError(error="game.not.found")
+
+    return game
