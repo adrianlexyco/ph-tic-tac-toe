@@ -1,4 +1,4 @@
-from typing import Optional, Protocol
+from typing import Optional
 from uuid import UUID
 
 from app.core.models.player import Player
