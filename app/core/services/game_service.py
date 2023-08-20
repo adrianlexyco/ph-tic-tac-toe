@@ -74,7 +74,7 @@ async def add_movement(
 
 
 def calculate_game_status(game: Game) -> str:
-    if len(game.movements) < 6:
+    if len(game.movements) < 5:
         return "game.not.finished"
 
     board = build_user_board(board_size=game.board_size, movements=game.movements)
